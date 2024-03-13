@@ -16,6 +16,7 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.sp
+import com.example.movieapp.models.Movie
 
 @Composable
 fun TextRecyclerTitle(text: String) {
@@ -64,13 +65,34 @@ fun TextDetailTitle(
     )
 }
 
+@Composable
+fun TextDetailInfo(
+    modifier: Modifier = Modifier,
+    text1: String,
+    text2: String
+) {
+    Text(
+        modifier = modifier.fillMaxWidth(),
+        text = buildAnnotatedString {
+            withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
+                append(text1)
+            }
+            withStyle(SpanStyle()) {
+                append(text2)
+            }
+        },
+    )
+}
+
 @Preview(showBackground = true)
 @Composable
 fun TextsPreview() {
+
     Column {
         TextRecyclerTitle(text = "TextRecyclerTitle")
         TextRecyclerDetails(text = "TextRecyclerDetails")
         TextDetailTitle(text = "TextDetailTitle")
+        TextDetailInfo(text1 = "TITULO", text2 = "dqiohdnoqwuidhqwioudgbqwjhidbqwdb")
     }
 }
 

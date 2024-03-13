@@ -48,33 +48,8 @@ fun AsyncImageRecycler(list: List<Movie>, onItemClick: (String) -> Unit) {
         items(list) { movie ->
             AsyncMovieRow(movie = movie, onItemClick = onItemClick)
         }
-
     }
 }
-
-/*@Composable
-fun MovieRow(movie: MovieModel, onItemClick: (String) -> Unit = {}) {
-    val cornerDp = 10.dp
-    Card(
-        modifier = Modifier
-            .padding(top = 10.dp, bottom = 10.dp)
-            .clip(RoundedCornerShape(cornerDp))
-            .clickable { onItemClick(movie.getId()) },
-    ) {
-        Row(
-            Modifier
-                .fillMaxWidth()
-                .padding(7.dp)
-        ) {
-            MovieImage(imageId = movie.getImageId(), cornerDp = cornerDp)
-            Spacer(modifier = Modifier.width(6.dp))
-            Column {
-                TextRecyclerTitle(movie.getName())
-                Divider(thickness = 1.dp)
-            }
-        }
-    }
-}*/
 
 @Composable
 fun AsyncMovieRow(movie: Movie, onItemClick: (String) -> Unit = {}) {
@@ -91,7 +66,6 @@ fun AsyncMovieRow(movie: Movie, onItemClick: (String) -> Unit = {}) {
                 .fillMaxWidth()
                 .padding(7.dp)
         ) {
-//            MovieImage(imageId = movie.getImageId(), cornerDp = cornerDp)
             Surface(
                 modifier = Modifier
                     .fillMaxHeight()
@@ -121,54 +95,10 @@ fun AsyncMovieRow(movie: Movie, onItemClick: (String) -> Unit = {}) {
     }
 }
 
-
-/*
-@Composable
-fun MovieImage(imageId: Int, cornerDp: Dp = 10.dp) {
-    Image(
-        modifier = Modifier
-            .width(104.dp)
-            .height(160.dp)
-            .clip(RoundedCornerShape(cornerDp)),
-        painter = painterResource(id = imageId),
-        contentDescription = "MovieImage",
-        contentScale = ContentScale.Crop
-    )
-}
-*/
-
-@Composable
-fun AsyncMovieImage(
-    imageLink: String,
-    contentDescription: String = "MoviePoster",
-) {
-    val cornerDp: Dp = 10.dp
-    SubcomposeAsyncImage(
-        alignment = Alignment.Center,
-        modifier = Modifier
-            .width(72.8.dp)
-            .height(112.dp)
-            .clip(RoundedCornerShape(cornerDp)),
-        contentScale = ContentScale.Crop,
-        loading = {
-            Box(
-                modifier = Modifier.fillMaxSize(),
-                contentAlignment = Alignment.Center
-            ) {
-                CircularProgressIndicator()
-            }
-        },
-        model = imageLink,
-        contentDescription = contentDescription
-    )
-}
-
-
 @Composable
 @Preview(showBackground = true)
 fun PreviewRow() {
     Column {
-//        MovieRow(movie = MovieModel.defaultList[0])
         AsyncMovieRow(movie = Movie.getMovies()[0])
     }
 

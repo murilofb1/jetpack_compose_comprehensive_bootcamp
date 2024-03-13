@@ -38,39 +38,12 @@ fun TopBarSimple(
     )
 }
 
-@Composable
-fun TestTopBar(title: String) {
-    TopAppBar(
-        colors = TopAppBarDefaults.topAppBarColors(
-            containerColor = MaterialTheme.colorScheme.primary
-        ),
-        title = {
-            Text(
-                text = title,
-                color = MaterialTheme.colorScheme.onPrimary,
-                fontWeight = FontWeight.Medium
-            )
-        },
-        navigationIcon = {
-            IconButton(
-                onClick = { /*TODO*/ },
-                colors = IconButtonDefaults.iconButtonColors(
-                    contentColor = MaterialTheme.colorScheme.onPrimary,
-                )
-            ) {
-                Icon(imageVector = Icons.Filled.ArrowBack, contentDescription = "")
-            }
-        }
-    )
-}
-
 @Preview(showBackground = true)
 @Composable
 
 fun PreviewAppBar() {
     Column {
         TopBarSimple(title = "Movies")
-        TestTopBar("")
     }
 
 }
