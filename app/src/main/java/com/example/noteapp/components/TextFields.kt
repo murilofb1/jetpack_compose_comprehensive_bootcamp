@@ -9,17 +9,20 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import kotlin.math.max
 
 @Composable
 fun MyTextField(
     modifier: Modifier = Modifier,
     textState: State<String>,
+    maxLines: Int = 1,
     onValueChange: (String) -> Unit = {},
     label: String? = null
 ) {
     TextField(
         modifier = modifier,
         value = textState.value,
+        maxLines = maxLines,
         onValueChange = onValueChange,
         label = { label?.let { Text(text = it) } }
     )
