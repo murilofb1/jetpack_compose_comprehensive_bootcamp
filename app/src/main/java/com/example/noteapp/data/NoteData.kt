@@ -1,42 +1,42 @@
 package com.example.noteapp.data
 
-import com.example.noteapp.models.NoteModel
+import com.example.noteapp.models.NoteEntity
 
 class NoteData {
     companion object {
-        fun loadNotes(): List<NoteModel> {
+        fun loadNotes(): List<NoteEntity> {
             return listOf(
-                NoteModel(title = "A good day", description = "We went on a vacation by the lake"),
-                NoteModel(
+                NoteEntity(title = "A good day", description = "We went on a vacation by the lake"),
+                NoteEntity(
                     title = "Android Compose",
                     description = "Working on Android Compose course today"
                 ),
-                NoteModel(title = "Keep at it...", description = "Sometimes things just happen"),
-                NoteModel(
+                NoteEntity(title = "Keep at it...", description = "Sometimes things just happen"),
+                NoteEntity(
                     title = "A movie day",
                     description = "Watching a movie with family today"
                 ),
-                NoteModel(
+                NoteEntity(
                     title = "A movie day",
                     description = "Watching a movie with family today"
                 ),
-                NoteModel(
+                NoteEntity(
                     title = "A movie day",
                     description = "Watching a movie with family today"
                 ),
-                NoteModel(
+                NoteEntity(
                     title = "A movie day",
                     description = "Watching a movie with family today"
                 ),
-                NoteModel(
+                NoteEntity(
                     title = "A movie day",
                     description = "Watching a movie with family today"
                 ),
-                NoteModel(
+                NoteEntity(
                     title = "A movie day",
                     description = "Watching a movie with family today"
                 ),
-                NoteModel(title = "A movie day", description = "Watching a movie with family")
+                NoteEntity(title = "A movie day", description = "Watching a movie with family")
 
             )
         }
